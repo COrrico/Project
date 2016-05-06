@@ -1,1 +1,229 @@
 
+<html>
+  <head>
+
+  <style type="text/css">            
+
+			header   {color:White;}
+			body { 	  
+ 		  			font-size: 2.5em;     
+ 		  			font-family: serif;
+	      			background-color:	blue;                              
+	      			color: white;   
+	      			padding: 5%;
+	      			text-align:center;
+	    		 } 
+	    		 
+		</style> 
+	</head>
+	<body>
+	    <header>
+	        Greenwich Real Estate! </header>
+	        
+	        <button onclick="search()"> Press to search for a house. </button>
+	        <button onclick="printList()"> Press to list the of homes</button>
+        
+            <button onclick = "addHouse()"> Would you like to add your house to the listing?
+        </button>
+
+
+	        <p font-color="red" id="searchResult"> </p>
+		<p font-color="red" id="house"> </p>
+		<script>
+		
+		var bed=[];
+            var bathroom=[];
+            var sqft=[];
+            var email=[];
+            var commaTrack = 1;
+            var keepTrack = "";
+        //ARRAYS!!!//
+        
+        
+   
+            
+        
+    function projectMaker(fileName){
+        var reader = new FileReader();
+    reader.readAsText(fileName); 
+    reader.onload = function() { 
+    fileText = reader.result;
+    console.log(fileText);
+   //Displaying the data//
+        
+        
+        
+            
+            
+            for( i = 0; i < fileText.length; i ++){ 
+                if (fileText[i] == ","|| fileText[i] == "\n"){
+                    console.log("Found a comma!!!")
+                    if(commaTrack == 1){bed.push(keepTrack)
+                        commaTrack++;
+                    }
+
+
+               else if (commaTrack == 2){bathroom.push(keepTrack)
+                        commaTrack++;
+                    }
+
+                      else if (commaTrack == 3){sqft.push(keepTrack)
+                        commaTrack++;
+                    }
+
+                      else if (commaTrack == 4){email.push(keepTrack)
+                        commaTrack = 1; }
+                        keepTrack = "";
+                    }
+
+
+                else{ keepTrack += fileText[i];}
+                    }
+                 console.log(bed.length);
+                 console.log(bed);//loging the amout of bedrooms//
+                  console.log(bathroom);//loging the amount of bathrooms//
+                   console.log(sqft);//loging the amount sqft of the home//
+                    console.log(email);//loging the email in the data file//
+                   }
+                  
+                   } 
+            
+                  function addHouse(){
+                    var place = document.getElementById("rawr")
+                    place.innerHTML = ""; //Place is the same as document.GetElementById, it is just the variable I called it, instead of saying document.getElementByID.inner HTML, each time.// 
+                    for(i = 0; i < bed.length; i++){
+                        place.innerHTML += bed[i];
+                          place.innerHTML += bathroom[i];
+                           place.innerHTML += "<br>";
+                           place.innerHTML += sqft[i];
+                           place.innerHTML += "<br>";
+                           place.innerHTML += email[i];
+                             place.innerHTML += "<br>";
+                             place.innerHTML += "<br>";
+                    }
+                  }
+
+
+                  function addUser(){
+                    bed.push(prompt("How many Bedrooms does your house have?"));
+                    bathroom.push(prompt("How many bathrooms does your house have?"));
+                    sqft.push(prompt("What is the sqft of your house?"));
+                    email.push(prompt("What is your email adress?"));
+                  }
+                //Adding prompts, asking the user to input information//
+
+
+
+
+var inventory = [];
+				
+					
+						function House(bed,bathrooms,sqft,email) {
+							this.bed = bed;  
+							this.bathrooms = bathrooms;
+							this.email = email;    
+							  
+							}
+							
+						 
+			
+				
+								
+			 //Add cars to Array
+			 
+				function start()
+				
+					{    
+					var bed = prompt("Is this the amount of bedrooms you would like")
+					
+					
+					 
+					if( bed == " ")   
+						{
+					
+						var bed1 = prompt("how many bedrooms are there?")       
+						var bathrooms1 = prompt("how many bathrooms are there?")
+						
+						
+						 car1 = new Car(mileage1,color1,type)	
+						
+						  inventory.push(car1)
+ 						}
+						
+					else if(type == "motorcycle")
+						{
+						  
+							    
+					
+					
+					
+			//search for cars.
+			
+			
+			function search(){     
+			
+						 
+			var trait = prompt("What type of house would you like?")    
+			var traitFound = false;	  
+
+				for(var i = 0; inventory.length > i; i++) 
+					{
+					
+				 
+						
+						if(House[i].color == trait)
+							{
+								console.log(House[i]);   
+								var traitFound = true;
+								
+								document.getElementById("searchResult").innerHTML="Hey we found your dream house "+ "The amount of bedrooms is "+House[i].bed+", "+ "the amount of bathrooms is" +" "+  House[i].bathrooms+" "+"and the sqft is "+" "+House[i].sqft;
+							}    
+
+					}
+				
+				if(traitFound != true)
+					{
+						document.getElementById("searchResult").innerHTML="We did not find the house you are looking for.";     
+					}
+					
+			};
+		 
+		 
+		 
+
+					//Prints inventory
+			
+			function printList(){
+			
+							for(var i = 0; House.length > i; i++) 
+								{
+									document.getElementById("House1").innerHTML;
+								}
+			
+			
+			
+			
+			
+		 
+		 
+		
+		
+	
+
+
+        </script>  
+		     
+        
+         <!--This bit of code will ask the user to "browse" for the name of a file to read. -->
+<p> Please choose a file to analyze:</p>
+<input type="file" id="fileName" onchange="projectMaker(fileName.files[0])"></input>
+<!-- input is an HTML tag that asks the user for input and then calls a function, "readfile" once a
+file is selected-->
+        </body>
+		
+		
+		
+		
+		    
+		    
+		
