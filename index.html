@@ -1,40 +1,12 @@
-
-<html>
-  <head>
-
-  <style type="text/css">            
-
-			header   {color:White;}
-			body { 	  
- 		  			font-size: 2.5em;     
- 		  			font-family: serif;
-	      			background-color:	blue;                              
-	      			color: white;   
-	      			padding: 5%;
-	      			text-align:center;
-	    		 } 
-	    		 
-		</style> 
-	</head>
-	<body>
-	    <header>
-	        Greenwich Real Estate! </header>
-	        
-	        <button onclick="search()"> Press to search for a house. </button>
-	        <button onclick="printList()"> Press to list the of homes</button>
-        
-            <button onclick = "addHouse()"> Would you like to add your house to the listing?
-        </button>
-
-
-	        <p font-color="red" id="searchResult"> </p>
-		<p font-color="red" id="house"> </p>
-		<script>
-		
-		var bed=[];
+ <!DOCTYPE HTML>
+    <html>   
+        <head>
+        <script>
+            var bed=[];
             var bathroom=[];
             var sqft=[];
             var email=[];
+            var fileText = "";
             var commaTrack = 1;
             var keepTrack = "";
         //ARRAYS!!!//
@@ -80,21 +52,25 @@
                 else{ keepTrack += fileText[i];}
                     }
                  console.log(bed.length);
-                 console.log(bed);//loging the amout of bedrooms//
-                  console.log(bathroom);//loging the amount of bathrooms//
-                   console.log(sqft);//loging the amount sqft of the home//
+                 console.log(bed);//loging the amount of bedrooms in the data file//
+                  console.log(bathroom);//loging the amount of bathrooms in the data file//
+                   console.log(sqft);//loging the square footage of the house in the data file//
                     console.log(email);//loging the email in the data file//
                    }
                   
                    } 
             
-                  function addHouse(){
+                  function createHouse(){
                     var place = document.getElementById("rawr")
                     place.innerHTML = ""; //Place is the same as document.GetElementById, it is just the variable I called it, instead of saying document.getElementByID.inner HTML, each time.// 
                     for(i = 0; i < bed.length; i++){
+                        place.innerHTML += "Bedrooms:";
                         place.innerHTML += bed[i];
+                        place.innerHTML += "<br>";
+                        place.innerHTML += "Bathrooms:"
                           place.innerHTML += bathroom[i];
                            place.innerHTML += "<br>";
+                           place.innerHTML += "Square footage:"
                            place.innerHTML += sqft[i];
                            place.innerHTML += "<br>";
                            place.innerHTML += email[i];
@@ -105,114 +81,27 @@
 
 
                   function addUser(){
-                    bed.push(prompt("How many Bedrooms does your house have?"));
+                    bed.push(prompt("How many bedrooms does your house have?"));
                     bathroom.push(prompt("How many bathrooms does your house have?"));
-                    sqft.push(prompt("What is the sqft of your house?"));
+                    sqft.push(prompt("what is the sqft of the house?"));
                     email.push(prompt("What is your email adress?"));
                   }
                 //Adding prompts, asking the user to input information//
 
 
 
-
-var inventory = [];
-				
-					
-						function House(bed,bathrooms,sqft,email) {
-							this.bed = bed;  
-							this.bathrooms = bathrooms;
-							this.email = email;    
-							  
-							}
-							
-						 
-			
-				
-								
-			 //Add cars to Array
-			 
-				function start()
-				
-					{    
-					var bed = prompt("Is this the amount of bedrooms you would like")
-					
-					
-					 
-					if( bed == " ")   
-						{
-					
-						var bed1 = prompt("how many bedrooms are there?")       
-						var bathrooms1 = prompt("how many bathrooms are there?")
-						
-						
-						 car1 = new Car(mileage1,color1,type)	
-						
-						  inventory.push(car1)
- 						}
-						
-					else if(type == "motorcycle")
-						{
-						  
-							    
-					
-					
-					
-			//search for cars.
-			
-			
-			function search(){     
-			
-						 
-			var trait = prompt("What type of house would you like?")    
-			var traitFound = false;	  
-
-				for(var i = 0; inventory.length > i; i++) 
-					{
-					
-				 
-						
-						if(House[i].color == trait)
-							{
-								console.log(House[i]);   
-								var traitFound = true;
-								
-								document.getElementById("searchResult").innerHTML="Hey we found your dream house "+ "The amount of bedrooms is "+House[i].bed+", "+ "the amount of bathrooms is" +" "+  House[i].bathrooms+" "+"and the sqft is "+" "+House[i].sqft;
-							}    
-
-					}
-				
-				if(traitFound != true)
-					{
-						document.getElementById("searchResult").innerHTML="We did not find the house you are looking for.";     
-					}
-					
-			};
-		 
-		 
-		 
-
-					//Prints inventory
-			
-			function printList(){
-			
-							for(var i = 0; House.length > i; i++) 
-								{
-									document.getElementById("House1").innerHTML;
-								}
-			
-			
-			
-			
-			
-		 
-		 
-		
-		
-	
-
-
         </script>  
-		     
+        </head> 
+        <body>
+<h1> Greenwich Houses </h1>
+<p1>Please chose a file, then click make table.</p>
+<p2>If you wish to add your house to the list, fill out the information, then click make table.
+           
+                     <button onclick = "createHouse()"> MakeTable
+        </button>
+            <button onclick = "addUser()"> Add a User
+        </button>
+<p id = "rawr"> </p>
         
          <!--This bit of code will ask the user to "browse" for the name of a file to read. -->
 <p> Please choose a file to analyze:</p>
@@ -220,10 +109,15 @@ var inventory = [];
 <!-- input is an HTML tag that asks the user for input and then calls a function, "readfile" once a
 file is selected-->
         </body>
-		
-		
-		
-		
-		    
-		    
-		
+        <style>
+        body{
+            background-color: white; 
+            text-align: left;
+
+        }
+        </style>
+
+        
+            
+        
+    </html>
