@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bare - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="listing.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">About</a>
+                    </li>
+                    <li>
+                        <a href="listing.html">Listings</a>
+                    </li>
+                    <li>
+                        <a href="map.html">Map</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Greenwich Home Listings</h1>
+            <form class="form-inline">
+                <button type="submit" class="btn btn-primary">Search All Homes</button>
+            </form>
+<hr><h2>Add Your House</h2>
+<p1>Please chose a file, then click make table.</p>
+<p2>If you wish to add your house to the list, fill out the information, then click make table.
+           <button type="button" class="btn btn-primary" onclick = "createHouse()"> MakeTable</button>
+           <button type="button" class="btn btn-primary" onclick = "addUser()">Add a house</button>
+
+ <p id = "rawr"> </p>
+
+         <!--This bit of code will ask the user to "browse" for the name of a file to read. -->
+<p> Please choose a file to analyze:</p>
+<input type="file" id="fileName" onchange="projectMaker(fileName.files[0])"></input>
+<!-- input is an HTML tag that asks the user for input and then calls a function, "readfile" once a
+file is selected-->
+
+
+            <form>
+           
+                <br>
+  
+              <fieldset class="form-group price">
+                <label for="exampleSelect1">Number Of Bedrooms</label>
+                <select class="form-control" id="exampleSelect1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                </select>
+              </fieldset>
+            <fieldset class="form-group price">
+                <label for="exampleSelect1">Number Of Bathrooms</label>
+                <select class="form-control" id="exampleSelect1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                </select>
+              </fieldset>
+                <label for="exampleSelect1">Price Range</label>
+                <div class="input-group price">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Enter Min Price">
+                    <span class="input-group-addon">.00</span>
+                </div>   
+                <h4>To</h4>
+                <div class="input-group price">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Enter Max price">
+                    <span class="input-group-addon">.00</span>
+                </div>
+                    <br>
+                <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- /.container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+
+    </div>
+
+
+<br>
+<br>
+<hr>
+
+
+
+
+
+
+
+
+<!-- /.container -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="singUp.js"></script>
+
+</body>
+
+</html>

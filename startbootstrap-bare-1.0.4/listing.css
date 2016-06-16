@@ -1,0 +1,48 @@
+body {
+	min-width: 420px;
+}
+.price {
+	width: 80%;
+}
+
+.thumbnail {
+	width: 345px;
+}
+.map {
+
+	margin-left: 46%;
+	margin-right: 30%;
+}
+#gwich {
+	width: 385px;
+height: 194px;
+}
+iframe{
+	width: 500px;
+	height: 300px;
+}
+
+@media screen and (max-width: 1200px) {
+   .map {
+	margin-left: 30%;
+	margin-right: 0%;
+}
+}
+
+@media screen and (max-width: 985px) {
+   .map {
+	margin-left: 18%;
+	margin-right: 0%;
+}
+iframe{
+
+width: 375px;
+ height: 240px;
+}
+}
+@media screen and (max-width: 550px) {
+   .map {
+	margin-left: 0%;
+	margin-right: 0%;
+}
+}

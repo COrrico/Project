@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+    <html>   
+        <head>
+        <script>
+            var bed=[];
+            var bathroom=[];
+            var sqft=[];
+            var email=[];
+            var fileText = "";
+            var commaTrack = 1;
+            var keepTrack = "";
+        //ARRAYS!!!//
+        
+        
+   
+            
+        
+    function projectMaker(fileName){
+        var reader = new FileReader();
+    reader.readAsText(fileName); 
+    reader.onload = function() { 
+    fileText = reader.result;
+    console.log(fileText);
+   //Displaying the data//
+        
+        
+        
+            
+            
+            for( i = 0; i < fileText.length; i ++){ 
+                if (fileText[i] == ","|| fileText[i] == "\n"){
+                    console.log("Found a comma!!!")
+                    if(commaTrack == 1){bed.push(keepTrack)
+                        commaTrack++;
+                    }
+               else if (commaTrack == 2){bathroom.push(keepTrack)
+                        commaTrack++;
+                    }
+                      else if (commaTrack == 3){sqft.push(keepTrack)
+                        commaTrack++;
+                    }
+                      else if (commaTrack == 4){email.push(keepTrack)
+                        commaTrack = 1; }
+                        keepTrack = "";
+                    }
+                else{ keepTrack += fileText[i];}
+                    }
+                 console.log(bed.length);
+                 console.log(bed);//loging the amount of bedrooms in the data file//
+                  console.log(bathroom);//loging the amount of bathrooms in the data file//
+                   console.log(sqft);//loging the square footage of the house in the data file//
+                    console.log(email);//loging the email in the data file//
+                   }
+                  
+                   } 
+            
+                  function createHouse(){
+                    var place = document.getElementById("rawr")
+                    place.innerHTML = ""; //Place is the same as document.GetElementById, it is just the variable I called it, instead of saying document.getElementByID.inner HTML, each time.// 
+                    for(i = 0; i < bed.length; i++){
+                        place.innerHTML += "Bedrooms:";
+                        place.innerHTML += bed[i];
+                        place.innerHTML += "<br>";
+                        place.innerHTML += "Bathrooms:"
+                          place.innerHTML += bathroom[i];
+                           place.innerHTML += "<br>";
+                           place.innerHTML += "Square footage:"
+                           place.innerHTML += sqft[i];
+                           place.innerHTML += "<br>";
+                           place.innerHTML += email[i];
+                             place.innerHTML += "<br>";
+                             place.innerHTML += "<br>";
+                    }
+                  }
+                  function addUser(){
+                    bed.push(prompt("How many bedrooms does your house have?"));
+                    bathroom.push(prompt("How many bathrooms does your house have?"));
+                    sqft.push(prompt("what is the sqft of the house?"));
+                    email.push(prompt("What is your email adress?"));
+                  }
+                //Adding prompts, asking the user to input information//
+        </script>  
+        </head> 
+        <body>
+<h1> Greenwich Houses </h1>
+<p1>Please chose a file, then click make table.</p>
+<p2>If you wish to add your house to the list, fill out the information, then click make table.
+           
+                     <button onclick = "createHouse()"> MakeTable
+        </button>
+            <button onclick = "addUser()"> Add a house
+        </button>
+<p id = "rawr"> </p>
+        
+         <!--This bit of code will ask the user to "browse" for the name of a file to read. -->
+<p> Please choose a file to analyze:</p>
+<input type="file" id="fileName" onchange="projectMaker(fileName.files[0])"></input>
+<!-- input is an HTML tag that asks the user for input and then calls a function, "readfile" once a
+file is selected-->
+        </body>
+        <style>
+        body{
+            background-color: white; 
+            text-align: left;
+        }
+        </style>
+
+        
+            
+        
+    </html>
